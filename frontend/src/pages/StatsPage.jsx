@@ -20,8 +20,9 @@ export function StatsPage({ stats }) {
 
       <div className="metrics-grid">
         <MetricCard label="有效证照" value={stats?.active_licenses} />
-        <MetricCard label="即将到期" value={stats?.expiring_licenses} tone="warning" />
-        <MetricCard label="已到期" value={stats?.expired_licenses} tone="danger" />
+        <MetricCard label="临期" value={stats?.expiring_licenses} tone="warning" />
+        <MetricCard label="紧急" value={stats?.urgent_licenses} tone="urgent" />
+        <MetricCard label="已过期" value={stats?.expired_licenses} tone="danger" />
         <MetricCard label="借出中" value={stats?.borrowed_records} />
       </div>
 

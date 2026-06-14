@@ -8,8 +8,9 @@ export const licenseTypes = [
 
 export const licenseStatuses = [
   { value: 'active', label: '有效' },
-  { value: 'expiring', label: '即将到期' },
-  { value: 'expired', label: '已到期' },
+  { value: 'expiring', label: '临期' },
+  { value: 'urgent', label: '紧急' },
+  { value: 'expired', label: '已过期' },
   { value: 'archived', label: '已归档' },
 ]
 

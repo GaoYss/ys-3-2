@@ -12,8 +12,9 @@ class License(models.Model):
 
     class Status(models.TextChoices):
         ACTIVE = "active", "有效"
-        EXPIRING = "expiring", "即将到期"
-        EXPIRED = "expired", "已到期"
+        EXPIRING = "expiring", "临期"
+        URGENT = "urgent", "紧急"
+        EXPIRED = "expired", "已过期"
         ARCHIVED = "archived", "已归档"
 
     name = models.CharField("证照名称", max_length=120)
@@ -41,12 +42,18 @@ class License(models.Model):
         return (self.expiry_date - timezone.localdate()).days
 
     @property
+    def urgent_threshold_days(self):
+        return max(1, self.reminder_days // 2)
+
+    @property
     def computed_status(self):
         if self.status == self.Status.ARCHIVED:
             return self.Status.ARCHIVED
         days_left = self.days_until_expiry
         if days_left < 0:
             return self.Status.EXPIRED
+        if days_left <= self.urgent_threshold_days:
+            return self.Status.URGENT
         if days_left <= self.reminder_days:
             return self.Status.EXPIRING
         return self.Status.ACTIVE

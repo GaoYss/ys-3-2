@@ -1,7 +1,8 @@
 const statusLabels = {
   active: '有效',
-  expiring: '即将到期',
-  expired: '已到期',
+  expiring: '临期',
+  urgent: '紧急',
+  expired: '已过期',
   archived: '已归档',
   borrowed: '借出中',
   returned: '已归还',

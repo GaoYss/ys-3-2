@@ -37,6 +37,7 @@ def dashboard_stats():
         "total_licenses": License.objects.count(),
         "active_licenses": status_counts.get(License.Status.ACTIVE, 0),
         "expiring_licenses": status_counts.get(License.Status.EXPIRING, 0),
+        "urgent_licenses": status_counts.get(License.Status.URGENT, 0),
         "expired_licenses": status_counts.get(License.Status.EXPIRED, 0),
         "borrowed_records": BorrowRecord.objects.filter(status=BorrowRecord.Status.BORROWED).count(),
         "overdue_returns": BorrowRecord.objects.filter(status=BorrowRecord.Status.OVERDUE).count(),

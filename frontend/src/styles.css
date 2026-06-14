@@ -132,7 +132,7 @@ h2 {
 
 .metrics-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 14px;
 }
 
@@ -161,6 +161,10 @@ h2 {
 
 .metric-warning strong {
   color: #b45309;
+}
+
+.metric-urgent strong {
+  color: #c2410c;
 }
 
 .metric-danger strong {
@@ -349,6 +353,11 @@ textarea:focus {
 .status-borrowed {
   color: #92400e;
   background: #fef3c7;
+}
+
+.status-urgent {
+  color: #9a3412;
+  background: #ffedd5;
 }
 
 .status-expired,
